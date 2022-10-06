@@ -46,20 +46,43 @@
 # ENTRYPOINT  ["./build"]
 
 
-FROM golang:1.18
+# FROM golang:1.18
 
-WORKDIR /src/gin_blog
+# WORKDIR /src/gin_blog
 
-COPY . /src/gin_blog
+# COPY . /src/gin_blog
 
+# ENV GO111MODULE=on
+# ENV GOPROXY="https://goproxy.cn"
+# RUN go mod download
+# RUN go build -o gin_blog main.go
+# # RUN go run -x main.go
+
+
+# EXPOSE 8080
+
+# # ENTRYPOINT ["./gin_blog"]
+# CMD ["./gin_blog"]
+
+
+# 镜像体积小
+FROM golang:alpine AS builder
+ 
+WORKDIR /build
+ 
+ADD go.mod .
+COPY . .
 ENV GO111MODULE=on
 ENV GOPROXY="https://goproxy.cn"
 RUN go mod download
-RUN go build -o gin_blog main.go
-# RUN go run -x main.go
-
-
+RUN go build -o hello main.go
+ 
+ 
+FROM alpine
+ 
+WORKDIR /build
+COPY --from=builder /build/hello /build/hello
+ 
 EXPOSE 8080
 
-# ENTRYPOINT ["./gin_blog"]
-CMD ["./gin_blog"]
+CMD ["./hello"]
