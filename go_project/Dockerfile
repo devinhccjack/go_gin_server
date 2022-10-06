@@ -55,11 +55,11 @@ COPY . /src/gin_blog
 ENV GO111MODULE=on
 ENV GOPROXY="https://goproxy.cn"
 RUN go mod download
-RUN go build main.go
-RUN go run -x main.go
+RUN go build -o gin_blog main.go
+# RUN go run -x main.go
 
 
 EXPOSE 8080
 
-# ENTRYPOINT ["./gin_log"]
-CMD ["./gin_log/main.go"]
+# ENTRYPOINT ["./gin_blog"]
+CMD ["./gin_blog"]
