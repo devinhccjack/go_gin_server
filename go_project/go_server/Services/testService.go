@@ -1,7 +1,7 @@
 package Services
 
 import (
-    "gin/Models"
+    "go_server/Models"
 )
 
 type Test struct {

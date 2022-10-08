@@ -1,8 +1,8 @@
 package main
 
 import (
-    "gin/Router"
-    "gin/Databases"
+    "go_server/Router"
+    "go_server/Databases"
 )
 
 func main() {

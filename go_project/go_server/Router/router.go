@@ -2,9 +2,9 @@ package Router
 
 import (
     "github.com/gin-gonic/gin"
-    "gin/Controllers"
-    "gin/Middlewares"
-    "gin/Sessions"
+    "go_server/Controllers"
+    "go_server/Middlewares"
+    "go_server/Sessions"
     "github.com/gin-contrib/sessions"
 )
 

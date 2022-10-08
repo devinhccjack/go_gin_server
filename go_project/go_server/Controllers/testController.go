@@ -3,9 +3,9 @@ package Controllers
 import (
     "github.com/gin-gonic/gin"
     "net/http"
-    "strconv"
-    "fmt"
-    "gin/Services"
+    // "strconv"
+    // "fmt"
+    "go_server/Services"
 )
 
 func TestInsert(c *gin.Context) {

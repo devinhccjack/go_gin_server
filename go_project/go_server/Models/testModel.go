@@ -1,7 +1,7 @@
 package Models
 
 import (
-    "gin/Databases"
+    "go_server/Databases"
 )
 
 type Test struct {
