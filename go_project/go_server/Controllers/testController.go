@@ -1,19 +1,31 @@
 package Controllers
 
 import (
-    "github.com/gin-gonic/gin"
-    "net/http"
-    // "strconv"
-    // "fmt"
-    "go_server/Services"
+	"fmt"
+	"net/http"
+	"github.com/gin-gonic/gin"
+	// "strconv"
+	"go_server/Services"
 )
 
+// 添加
 func TestInsert(c *gin.Context) {
     var testService Services.Test
+    ids := c.PostForm("id")
+    testcol := c.PostForm("testcol")
+	fmt.Println("id=" + ids + ",testcol=" + testcol)
 
     err := c.ShouldBindJSON(&testService)
+    err1 := c.BindJSON(&testService)
+
+    fmt.Println("err---" ,err,err1)
+
     if err != nil {
-        c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+        c.JSON(http.StatusBadRequest, gin.H{
+            "error": err.Error(),
+            "Code": http.StatusBadRequest,
+            "Msg": err.Error(),
+        })
         return
     }
 
@@ -29,6 +41,31 @@ func TestInsert(c *gin.Context) {
         "code": 1,
         "message": "success",
         "data": id,
+    })
+
+}
+
+// 查询
+func GetTestList(c *gin.Context) {
+    var testService Services.Test
+    ids := c.DefaultQuery("id","0")
+    testcol := c.DefaultQuery("testcol","testcol")
+	fmt.Println("id=" + ids + ",testcol=" + testcol)
+
+    list, err := testService.GetTestData()
+    fmt.Println("res---",list,err)
+
+    if err != nil {
+        c.JSON(http.StatusOK, gin.H{
+            "code": -1,
+            "message": "Insert() error!",
+        })
+        return
+    }
+    c.JSON(http.StatusOK, gin.H{
+        "code": 1,
+        "message": "success",
+        "data": list,
     })
 
 }

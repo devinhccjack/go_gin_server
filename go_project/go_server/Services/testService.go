@@ -1,7 +1,8 @@
 package Services
 
 import (
-    "go_server/Models"
+	"fmt"
+	"go_server/Models/testModel"
 )
 
 type Test struct {
@@ -9,6 +10,7 @@ type Test struct {
     Testcol string `json:"testcol"`
 }
 
+// 添加
 func (this *Test) Insert() (id int, err error) {
     var testModel Models.Test
     testModel.Id = this.Id
@@ -16,3 +18,14 @@ func (this *Test) Insert() (id int, err error) {
     id, err = testModel.Insert()
     return
 }
+
+// 查询
+func (this *Test) GetTestData() ( list []Models.Test, err error) {
+    var testModel Models.Test
+    // var list []Models.Test
+    // list := make([]Models.Test, 0, 10)
+    list, err = testModel.GetTestDataModel()
+    fmt.Println("list-service---",list)
+    return 
+}
+
