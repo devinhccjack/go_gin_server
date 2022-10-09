@@ -90,12 +90,11 @@ curl http://127.0.0.1:9091/ping
 [GIN-debug] Listening and serving HTTP on 0.0.0.0:9091
 [GIN] 2021/10/29 - 06:23:43 | 200 |      58.471µs |      172.17.0.1 | GET      "/ping"
 
-### 测试访问
-http://localhost:9091/ping
+### 构建镜像docker与测试访问
 
-docker build -t gin:v1 .
+```bush
 
-docker run -itd --name gin -p 8080:8080 gin:v1
+http://localhost:8080/ping
 
 go run main.go
 
@@ -107,3 +106,8 @@ go build -o main.exe main.go
 
 go run -x --work main.go
 
+docker build -t gin:v1 .
+
+docker run -itd --name gin -p 8080:8080 gin:v1
+
+```

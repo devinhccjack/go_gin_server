@@ -17,7 +17,7 @@
 
 // func main() {
 // 	router := gin.Default()
-// 	router.LoadHTMLFiles("./login.html")   //解析网页
+// 	router.LoadHTMLFiles("web/login.html")   //解析网页
 // 	router.LoadHTMLFiles("web/index.html") //解析网页
 
 // 	// initDB()
@@ -270,7 +270,7 @@
 // }
 
 // func LoginPage(c *gin.Context) {
-// 	c.HTML(http.StatusOK, "login.html", nil)
+// 	c.HTML(http.StatusOK, "web/login.html", nil)
 
 // 	// c.JSON(200, gin.H{
 // 	// 	"message": "pong1",

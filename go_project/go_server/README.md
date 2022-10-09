@@ -102,3 +102,18 @@ response:
 
 
 ```
+
+### 构建镜像docker
+```bush
+
+http://localhost:8080/ping
+
+go run main.go
+
+go build main.go
+
+docker build -t gin:v1 .
+
+docker run -itd --name gin -p 8080:8080 gin:v1
+
+```
