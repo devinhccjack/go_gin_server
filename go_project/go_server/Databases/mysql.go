@@ -14,7 +14,7 @@ func Init()  {
     var err error
     //使用dsn连接到数据库，grom自带的数据库池
 	//账号:密码@连接方式(ip地址:端口号)/数据库？语言方式，时区（未设置时区的话采用8小时制度）
-	dsn := "root:123456@tcp(127.0.0.1:3306)/testdb?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:root123456@tcp(127.0.0.1:3306)/testdb?charset=utf8mb4&parseTime=True&loc=Local"
     //使用mysq连接数据库，第二个参数可以增加更多的配置(可有可无)
 	// conn, err := gorm.Open(mysql.Open(dsn), &gorm.Config{}) 
 	// conn.AutoMigrate(&Student{}) //创建表?判断是否表结构存在

@@ -11,14 +11,14 @@ import (
 // 添加
 func TestInsert(c *gin.Context) {
     var testService Services.Test
-    ids := c.PostForm("id")
+    title := c.PostForm("title")
     testcol := c.PostForm("testcol")
-	fmt.Println("id=" + ids + ",testcol=" + testcol)
+	fmt.Println("title=" + title + ",testcol=" + testcol)
 
     err := c.ShouldBindJSON(&testService)
     err1 := c.BindJSON(&testService)
 
-    fmt.Println("err---" ,err,err1)
+    fmt.Println("err---" ,err,err1,testService)
 
     if err != nil {
         c.JSON(http.StatusBadRequest, gin.H{
