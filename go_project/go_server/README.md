@@ -1,38 +1,46 @@
 
-# 初始化模块
+### 初始化模块
+```bush
 go mod init ProjectName
 go mod init go_server
-# 下载依赖包
-go mod tidy
 
+```
+
+### 下载依赖包
+```bush
+go mod tidy
 go env //查看配置信息
 set GO111MODULE=on / off
 go env -w GO111MODULE=off
 go env -w GO111MODULE=on
 
-
+```
 
 ### 安装
+```bush
 go get -u -v github.com/jinzhu/gorm
-
 go get -u -v github.com/gin-contrib/sessions
 
+```
 
 ### 下载:
-
+```bush
 go get   github.com/jinzhu/gorm
-
 go get   github.com/go-sql-driver/mysql
+```
 
 ### model 定义表结构体时，加入
-
+```bush
 gorm.Model
 新增数据时会自动维护表的 created_at 和 updated_at 字段
-
 init函数在你导入该package时程序会自动调用init函数
 
+```
 ### 下载
+```bush
 go get XXX 下载的包，默认会安装在GOPATH 的第一个路径里。
+
+```
 
 ### 参考文章
 ```bush
@@ -57,14 +65,16 @@ https://blog.csdn.net/qq_42956653/article/details/124783019
 http://localhost:8080/v1/testinsert
 参数：
 {
-    "id": 8,
-    "testcol": "testcol"
+    "title": "title",
+    "testcol":"testcol",
+    "Status": 1,
+    "description":"description"
 }
 
 response:
 {
     "code": 1,
-    "data": 8,
+    "data": 3,
     "message": "success"
 }
 
@@ -77,24 +87,34 @@ response:
     "code": 1,
     "data": [
         {
-            "Id": 4,
-            "Testcol": "testcol"
+            "Id": 1,
+            "Testcol": "testcol",
+            "Title": "title",
+            "Description": "description",
+            "Status": 1,
+            "CreatedAt": "2022-10-09T23:03:56+08:00",
+            "UpdatedAt": "2022-10-09T23:03:56+08:00",
+            "DeletedAt": null
         },
         {
-            "Id": 5,
-            "Testcol": "testcol"
+            "Id": 2,
+            "Testcol": "testcol",
+            "Title": "title",
+            "Description": "description",
+            "Status": 1,
+            "CreatedAt": "2022-10-09T23:04:16+08:00",
+            "UpdatedAt": "2022-10-09T23:04:16+08:00",
+            "DeletedAt": null
         },
         {
-            "Id": 6,
-            "Testcol": "testcol"
-        },
-        {
-            "Id": 7,
-            "Testcol": "testcol"
-        },
-        {
-            "Id": 8,
-            "Testcol": "testcol"
+            "Id": 3,
+            "Testcol": "testcol",
+            "Title": "title",
+            "Description": "description",
+            "Status": 1,
+            "CreatedAt": "2022-10-09T23:04:17+08:00",
+            "UpdatedAt": "2022-10-09T23:04:17+08:00",
+            "DeletedAt": null
         }
     ],
     "message": "success"
